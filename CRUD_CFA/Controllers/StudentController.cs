@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -48,6 +49,10 @@ namespace CRUD_CFA.Controllers
         {
             if (ModelState.IsValid)
             {
+                //call stored procedure
+                //var parameter1 = new SqlParameter("@parameter1",para1);
+                //var parameter2 = new SqlParameter("@parameter1", para2);
+                //db.Database.SqlQuery<StudentModel>(@"EXEC stored_procedure_name(@parameter1,@parameter2)",parameter1,parameter2).FirstOrDefault();
                 db.Student.Add(studentModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
